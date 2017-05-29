@@ -6,7 +6,12 @@ import shutil
 import jsonschema
 
 from fnmatch import fnmatchcase
-from urllib.parse import urlparse, unquote
+try:
+    from urllib.parse import urlparse, unquote
+except ImportError:
+    from urlparse import urlparse
+
+
 
 from .utils import load_yaml, download_file, ensure_dir
 

@@ -29,8 +29,8 @@ def dump_yaml(obj):
 
 
 def ensure_dir(path):
-    os.makedirs(path, exist_ok=True)
-
+    if not os.path.isdir(path):
+        os.makedirs(path)
 
 def format_results(terminal_width, key_list, separator, text_list,
                    left_align=True, min_factor=3, **kwargs):
